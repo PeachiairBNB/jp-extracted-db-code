@@ -1,0 +1,55 @@
+{
+  "name": "ls-module",
+  "version": "1.0.0",
+  "description": "Lexi's Modules",
+  "main": "server/index.js",
+  "scripts": {
+    "upload-csv": "mongoimport -d listings -c listing --type csv --file records.csv --headerline",
+    "build": "webpack -p",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server",
+    "startboth": "concurrently \"nodemon ./server/index.js\" \"webpack -d --watch\"",
+    "dev-react": "webpack -d --watch",
+    "aws-connect": "chmod 400 lexifec.pem  && ssh -i \"lexifec.pem\" ubuntu@ec2-18-222-217-73.us-east-2.compute.amazonaws.com",
+    "startboth-p": "concurrently \"node ./server/index.js\" \"webpack -p\""
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamAtlantis1/LS-Module.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TeamAtlantis1/LS-Module/issues"
+  },
+  "homepage": "https://github.com/TeamAtlantis1/LS-Module#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "css-loader": "^2.1.0",
+    "csv-writer": "^1.2.0",
+    "express": "^4.16.4",
+    "moment": "^2.23.0",
+    "mongoose": "^5.4.0",
+    "pg": "^7.8.0",
+    "popper.js": "^1.14.6",
+    "react": "^16.7.0",
+    "react-dates": "^18.3.1",
+    "react-dom": "^16.7.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "babel-preset-airbnb": "^3.2.0",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2"
+  }
+}
